@@ -17,3 +17,5 @@
 *_LOCAL_*.txt
 *_REMOTE_*.txt
 
+# c stuff
+*.o
