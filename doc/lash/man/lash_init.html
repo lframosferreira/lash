@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<title>lash_init</title>
+</head>
+
+<body bgcolor=white>
+
+<table align=center width=100% cellpadding=15%>
+<tr bgcolor="#bbffff">
+<td align=center>
+<h2>lash_init</h2>
+<br>
+<small>
+  [
+    <a href="lash_init.html#syn">Synopsis</a> |
+    <a href="lash_init.html#desc">Description</a> |
+    <a href="lash_init.html#ret">Return values</a> |
+    <a href="lash_init.html#diag">Diagnostics</a> |
+    <a href="lash_init.html#see">See also</a> |
+    <a href="../doc.html">Back to core package documentation</a>
+  ]
+</small>
+</td>
+</tr>
+</table>
+
+<h2><a name="syn">Synopsis</a></h2>
+
+<BLOCKQUOTE>
+<KBD>
+#include "lash.h"<br><br>
+int lash_init(void);
+</KBD>
+</BLOCKQUOTE>
+
+<h2><a name="desc">Description</a></h2>
+
+Initializes the package and performs some internal consistency
+checks.
+
+<h2><a name="ret">Return values</a></h2>
+
+If the function proceeds successfully, it returns <B>0</B>. Otherwise, it
+returns <B>-1</B> and sets 
+<A HREF="lash_errno.html"><KBD>lash_errno</KBD></A>.
+
+<h2><a name="diag">Diagnostics</a></h2>
+
+<DL>
+<DT> <KBD>LASH_ERR_ALREADY</KBD>
+<DD> The package is already initialized.
+
+<DT> <KBD>LASH_ERR_BAD_ARCH</KBD>
+<DD> Bad architecture. This error results from unadapted type
+     definitions in the file <KBD>lash-types.h</KBD>. It can
+     be corrected by updating the content of this file and then 
+     recompiling the package.
+
+<DT> <KBD>LASH_ERR_IN_USE</KBD>
+<DD> Objects already in use. This error indicates an internal
+     inconsistency.
+
+<DT> <KBD>LASH_ERR_LOGFILE</KBD>
+<DD> Cannot create the logfile. (This file is a debugging aid;
+     it is not created during normal use of the
+     package).
+</DL>
+
+<h2><a name="see">See also</a></h2>
+
+<A HREF="lash_end.html"><KBD>lash_end</KBD>
+
+<P>
+<table align=center width=100% cellpadding=15%>
+<tr bgcolor="#bbffff">
+<td align=center>
+<small>
+  [
+    <a href="lash_init.html#syn">Synopsis</a> |
+    <a href="lash_init.html#desc">Description</a> |
+    <a href="lash_init.html#ret">Return values</a> |
+    <a href="lash_init.html#diag">Diagnostics</a> |
+    <a href="lash_init.html#see">See also</a> |
+    <a href="../doc.html">Back to core package documentation</a>
+  ]
+</small>
+</td>
+</tr>
+</table>
+
+</body>
+</html>

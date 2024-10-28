@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<title>ndd</title>
+</head>
+
+<body bgcolor=white>
+
+<table align=center width=100% cellpadding=15%>
+<tr bgcolor="#bbffff">
+<td align=center>
+<h2>ndd</h2>
+<br>
+<small>
+  [
+    <a href="ndd.html#syn">Synopsis</a> |
+    <a href="ndd.html#desc">Description</a> |
+    <a href="ndd.html#see">See also</a> |
+    <a href="../doc.html">Back to the NDD package documentation</a>
+  ]
+</small>
+</td>
+</tr>
+</table>
+
+<h2><a name="syn">Synopsis</a></h2>
+
+<BLOCKQUOTE>
+<KBD>
+#include "lash-ndd.h"<br><br>
+ndd<br>
+</KBD>
+</BLOCKQUOTE>
+
+<h2><a name="desc">Description</a></h2>
+
+This datatype holds the representation of a set of unbounded integer
+vectors sharing the same dimension. Such a representation can be created
+by calling one of the constructor functions provided by the NDD
+package.  It can be unallocated by calling the function <A
+HREF="ndd_free.html"><KBD>ndd_free</KBD></A>.
+
+<P> Internally, an NDD is simply a finite-state automaton recognizing
+numbers. At the time an NDD is created, it is thus necessary to
+specify the <I>base</I> with respect to which the numbers are
+encoded, as well as the <I>direction</I> of this encoding (most or
+least significant digit first). For most applications, it is best to
+choose the base equal to 2 and to encode numbers most significant digit
+first. Some functions use a <I>default direction</I> for encoding
+numbers; one should not make assumptions about the value of this
+direction (other than supposing that it is consistent from one
+function call to another).
+
+<h2><a name="see">See also</a></h2>
+
+<A HREF="ndd_create_empty.html"><KBD>ndd_create_empty</KBD></A>,
+<A HREF="ndd_create_equation.html"><KBD>ndd_create_equation</KBD></A>,
+<A HREF="ndd_create_inequation.html"><KBD>ndd_create_inequation</KBD></A>
+<A HREF="ndd_create_zn.html"><KBD>ndd_create_zn</KBD></A>,
+<A HREF="ndd_create_eq2.html"><KBD>ndd_create_eq2</KBD></A>,
+<A HREF="ndd_free.html"><KBD>ndd_free</KBD></A>
+
+<P>
+<table align=center width=100% cellpadding=15%>
+<tr bgcolor="#bbffff">
+<td align=center>
+<small>
+  [
+    <a href="ndd.html#syn">Synopsis</a> |
+    <a href="ndd.html#desc">Description</a> |
+    <a href="ndd.html#see">See also</a> |
+    <a href="../doc.html">Back to the NDD package documentation</a>
+  ]
+</small>
+</td>
+</tr>
+</table>
+
+</body>
+</html>

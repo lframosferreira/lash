@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<title>linear_transf</title>
+</head>
+
+<body bgcolor=white>
+
+<table align=center width=100% cellpadding=15%>
+<tr bgcolor="#bbffff">
+<td align=center>
+<h2>linear_transf</h2>
+<br>
+<small>
+  [
+    <a href="linear_transf.html#syn">Synopsis</a> |
+    <a href="linear_transf.html#desc">Description</a> |
+    <a href="linear_transf.html#see">See also</a> |
+    <a href="../doc.html">Back to the NDD package documentation</a>
+  ]
+</small>
+</td>
+</tr>
+</table>
+
+<h2><a name="syn">Synopsis</a></h2>
+
+<BLOCKQUOTE>
+<KBD>
+#include "lash-ndd.h"<br><br>
+linear_transf<br>
+</KBD>
+</BLOCKQUOTE>
+
+<h2><a name="desc">Description</a></h2>
+
+This datatype holds the representation of a linear transformation
+over integer vectors. Such a transformation is composed of a system
+of linear constraints (called the <EM>guard</EM>) and a linear vector
+transformation (called the <EM>assignment</EM>). Applying the linear
+transformation to a set of integer vectors amounts to applying the
+assignment to all the vectors of the set that satisfy the guard.
+
+<P>
+The general form of a linear transformation is
+<BLOCKQUOTE>
+<table align=center>
+<tr>
+<td align=center>
+<I>P<B>x</B> &lt;= <B>q</B>&nbsp;&nbsp;-&gt;&nbsp;&nbsp;  
+<B>x</B> := A<B>x</B>
++ <B>b</B></I>,
+</td>
+</tr>
+</table>
+</BLOCKQUOTE>
+where <I>P<B>x</B> &lt;= <B>q</B></I> is the guard and
+<I><B>x</B> := A<B>x</B>+ <B>b</B></I> is the assignment.
+The matrices <I>P</I> and <I>A</I>, as well as the vectors
+<I><B>q</B></I> and <I><B>b</B></I>, can have arbitrary
+integer coefficients.
+
+<P>
+A linear transformation can be created by calling
+one of the constructor functions provided by the NDD package.
+It can be unallocated by calling the function
+<A HREF="ndd_transf_free.html"><KBD>ndd_transf_free</KBD></A>.
+ 
+<h2><a name="see">See also</a></h2>
+
+<A HREF="ndd_create_transf.html"><KBD>ndd_create_transf</KBD></A>,
+<A HREF="ndd_create_identity_transf.html"><KBD>ndd_create_identity_transf</KBD></A>,
+<A
+HREF="ndd_create_assign_transf.html"><KBD>ndd_create_assign_transf</KBD></A>,
+<A
+HREF="ndd_create_cond_transf.html"><KBD>ndd_create_equ_transf</KBD></A>,
+<A
+HREF="ndd_create_cond_transf.html"><KBD>ndd_create_inequ_transf</KBD></A>,
+<A HREF="ndd_transf_free.html"><KBD>ndd_transf_free</KBD></A>,
+<A HREF="linear_tr_info.html"><KBD>linear_tr_info</KBD></A>
+
+<P>
+<table align=center width=100% cellpadding=15%>
+<tr bgcolor="#bbffff">
+<td align=center>
+<small>
+  [
+    <a href="linear_transf.html#syn">Synopsis</a> |
+    <a href="linear_transf.html#desc">Description</a> |
+    <a href="linear_transf.html#see">See also</a> |
+    <a href="../doc.html">Back to the NDD package documentation</a>
+  ]
+</small>
+</td>
+</tr>
+</table>
+
+</body>
+</html>

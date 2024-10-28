@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<title>ndd_create_equation, ndd_create_equation_lsdf, ndd_create_equation_msdf</title>
+</head>
+
+<body bgcolor=white>
+
+<table align=center width=100% cellpadding=15%>
+<tr bgcolor="#bbffff">
+<td align=center>
+<h2>ndd_create_equation, ndd_create_equation_lsdf, ndd_create_equation_msdf</h2>
+<br>
+<small>
+  [
+    <a href="#syn">Synopsis</a> |
+    <a href="#desc">Description</a> |
+    <a href="#ret">Return values</a> |
+    <a href="#diag">Diagnostics</a> |
+    <a href="#see">See also</a> |
+    <a href="../doc.html">Back to the NDD package documentation</a>
+  ]
+</small>
+</td>
+</tr>
+</table>
+
+<h2><a name="syn">Synopsis</a></h2>
+
+<BLOCKQUOTE>
+<KBD>
+#include "lash-ndd.h"<br><br>
+ndd *ndd_create_equation_lsdf(uint1 r, uint4 n, sint4 *c, sint4 b);<br>
+ndd *ndd_create_equation_msdf(uint1 r, uint4 n, sint4 *c, sint4 b);<br>
+ndd *ndd_create_equation(uint1 r, uint4 n, sint4 *c, sint4 b);<br>
+</KBD>
+</BLOCKQUOTE>
+
+<h2><a name="desc">Description</a></h2>
+
+The functions <KBD>ndd_create_equation_lsdf</KBD> and
+<KBD>ndd_create_equation_msdf</KBD> create a new NDD representing the
+set of all the integer vectors (x<sub>1</sub>, x<sub>2</sub>,
+..., x<sub>n</sub>)
+of dimension <KBD>n</KBD> satisfying
+the equation
+<BLOCKQUOTE>
+<table align=center>
+<tr>
+<td align=center>
+<KBD>c</KBD>[0] x<sub>1</sub> + 
+<KBD>c</KBD>[1] x<sub>2</sub> + ... +
+<KBD>c</KBD>[<KBD>n</KBD>-1] x<sub>n</sub> = <KBD>b</KBD>
+</td>
+</tr>
+</table>
+</BLOCKQUOTE>
+
+<P>
+The numeration base is <KBD>r</KBD>. The NDDs created by
+<KBD>ndd_create_equation_msdf</KBD> operate most significant digit first,
+and those created by <KBD>ndd_create_equation_lsdf</KBD> least
+significant digit first.
+
+<P>
+The macro <KBD>ndd_create_equation</KBD> can be used for creating an NDD
+operating in the default direction.
+
+<P>
+If the dimension <KBD>n</KBD> is zero, then the functions return a
+universal NDD if <KBD>b = 0</KBD>, and an empty NDD otherwise.
+
+<h2><a name="ret">Return values</a></h2>
+
+In the case of success, these functions and macro return a pointer
+to a newly allocated NDD. In the case of an error, they return
+a NULL pointer and set 
+<A HREF="../../man/lash_errno.html"><KBD>lash_errno</KBD></A>.
+
+<h2><a name="diag">Diagnostics</a></h2>
+
+<DL>
+<DT> <KBD>LASH_ERR_NOT_INIT</KBD>
+<DD> The package has not been initialized.
+
+<DT> <KBD>LASH_ERR_NO_MEM</KBD>
+<DD> Insufficient memory.
+
+<DT> <KBD>LASH_ERR_BAD_VALUE</KBD>
+<DD> Invalid base (which must be at least equal to 2).
+</DL>
+
+<h2><a name="see">See also</a></h2>
+
+<A HREF="ndd_create_inequation.html"><KBD>ndd_create_inequation</KBD></A>,
+<A HREF="ndd_create_eq2.html"><KBD>ndd_create_eq2</KBD></A>,
+<A HREF="ndd_free.html"><KBD>ndd_free</KBD></A>
+
+<P>
+<table align=center width=100% cellpadding=15%>
+<tr bgcolor="#bbffff">
+<td align=center>
+<small>
+  [
+    <a href="#syn">Synopsis</a> |
+    <a href="#desc">Description</a> |
+    <a href="#ret">Return values</a> |
+    <a href="#diag">Diagnostics</a> |
+    <a href="#see">See also</a> |
+    <a href="../doc.html">Back to the NDD package documentation</a>
+  ]
+</small>
+</td>
+</tr>
+</table>
+
+</body>
+</html>

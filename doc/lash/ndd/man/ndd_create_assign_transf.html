@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<title>ndd_create_assign_transf</title>
+</head>
+
+<body bgcolor=white>
+
+<table align=center width=100% cellpadding=15%>
+<tr bgcolor="#bbffff">
+<td align=center>
+<h2>ndd_create_assign_transf</h2>
+<br>
+<small>
+  [
+    <a href="#syn">Synopsis</a> |
+    <a href="#desc">Description</a> |
+    <a href="#ret">Return values</a> |
+    <a href="#diag">Diagnostics</a> |
+    <a href="#see">See also</a> |
+    <a href="../doc.html">Back to the NDD package documentation</a>
+  ]
+</small>
+</td>
+</tr>
+</table>
+
+<h2><a name="syn">Synopsis</a></h2>
+
+<BLOCKQUOTE>
+<KBD>
+#include "lash-ndd.h"<br><br>
+linear_transf *ndd_create_assign_transf(uint4 n, uint4 p, sint4 *a, sint4 b);
+</KBD>
+</BLOCKQUOTE>
+
+<h2><a name="desc">Description</a></h2>
+
+<p>
+This function creates a linear transformation corresponding to the
+assignment operation 
+<BLOCKQUOTE>
+<table align=center>
+<tr>
+<td align=center>
+x<sub><KBD>p</KBD></sub>  := <KBD>a</KBD>[0]x<sub><KBD>0</KBD></sub>
++ <KBD>a</KBD>[1]x<sub><KBD>1</KBD></sub> + ... +
+<KBD>a</KBD>[<KBD>n</KBD>-1]x<sub><KBD>n</KBD>-1</sub>
++ <KBD>b</KBD>.
+</td>
+</tr>
+</table>
+</BLOCKQUOTE>
+
+<h2><a name="ret">Return values</a></h2>
+
+In the case of success, this function returns a pointer to a
+newly allocated linear transformation structure.
+In the case of an error, it returns a NULL pointer
+and sets 
+<A HREF="../../man/lash_errno.html"><KBD>lash_errno</KBD></A>.
+
+<h2><a name="diag">Diagnostics</a></h2>
+
+<DL>
+<DT> <KBD>LASH_ERR_NOT_INIT</KBD>
+<DD> The package has not been initialized.
+
+<DT> <KBD>LASH_ERR_NO_MEM</KBD>
+<DD> Insufficient memory.
+
+<DT> <KBD>LASH_ERR_BAD_VALUE</KBD>
+<DD> Invalid dimension.
+</DL>
+
+<h2><a name="see">See also</a></h2>
+
+<A HREF="linear_transf.html"><KBD>linear_transf</KBD></A>,
+<A HREF="ndd_create_transf.html"><KBD>ndd_create_transf</KBD></A>,
+<A HREF="ndd_create_identity_transf.html"><KBD>ndd_create_identity_transf</KBD></A>,
+<A HREF="ndd_create_cond_transf.html"><KBD>ndd_create_equ_transf</KBD>, 
+<KBD>ndd_create_inequ_transf</KBD></A>.
+
+<P>
+<table align=center width=100% cellpadding=15%>
+<tr bgcolor="#bbffff">
+<td align=center>
+<small>
+  [
+    <a href="#syn">Synopsis</a> |
+    <a href="#desc">Description</a> |
+    <a href="#ret">Return values</a> |
+    <a href="#diag">Diagnostics</a> |
+    <a href="#see">See also</a> |
+    <a href="../doc.html">Back to the NDD package documentation</a>
+  ]
+</small>
+</td>
+</tr>
+</table>
+
+</body>
+</html>

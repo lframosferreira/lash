@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<title>ndd_transf_compose</title>
+</head>
+
+<body bgcolor=white>
+
+<table align=center width=100% cellpadding=15%>
+<tr bgcolor="#bbffff">
+<td align=center>
+<h2>ndd_transf_compose</h2>
+<br>
+<small>
+  [
+    <a href="#syn">Synopsis</a> |
+    <a href="#desc">Description</a> |
+    <a href="#ret">Return values</a> |
+    <a href="#diag">Diagnostics</a> |
+    <a href="#see">See also</a> |
+    <a href="../doc.html">Back to the NDD package documentation</a>
+  ]
+</small>
+</td>
+</tr>
+</table>
+
+<h2><a name="syn">Synopsis</a></h2>
+
+<BLOCKQUOTE>
+<KBD>
+#include "lash-ndd.h"<br><br>
+linear_transf *ndd_transf_compose(linear_transf *t1, linear_transf *t2);
+</KBD>
+</BLOCKQUOTE>
+
+<h2><a name="desc">Description</a></h2>
+
+<p>
+This function composes the two linear transformations <KBD>t1</KBD>
+and <KBD>t2</KBD> into a linear transformation f such that f(x) =
+<KBD>t2</KBD>(<KBD>t1</KBD>(x)) for every x. The transformations
+<KBD>t1</KBD> and <KBD>t2</KBD> are not modified.
+
+<h2><a name="ret">Return values</a></h2>
+
+In the case of success, this function returns a pointer to a
+newly allocated linear transformation structure.
+In the case of an error, it returns a NULL pointer
+and sets
+<A HREF="../../man/lash_errno.html"><KBD>lash_errno</KBD></A>.
+
+<h2><a name="diag">Diagnostics</a></h2>
+
+<DL>
+<DT> <KBD>LASH_ERR_NOT_INIT</KBD>
+<DD> The package has not been initialized.
+
+<DT> <KBD>LASH_ERR_NO_MEM</KBD>
+<DD> Insufficient memory.
+
+<DT> <KBD>LASH_ERR_CORRUPT</KBD>
+<DD> Corrupt transformation structure.
+
+<DT> <KBD>LASH_ERR_OVERFLOW</KBD>
+<DD> Arithmetic overflow.
+
+<DT> <KBD>LASH_ERR_DIMENSION</KBD>
+<DD> Dimension mismatch.
+</DL>
+
+<h2><a name="see">See also</a></h2>
+
+<A HREF="linear_transf.html"><KBD>linear_transf</KBD></A>,
+<A HREF="ndd_create_transf.html"><KBD>ndd_create_transf</KBD></A>,
+<A HREF="ndd_transf_power.html"><KBD>ndd_transf_power</KBD></A>.
+
+<P>
+<table align=center width=100% cellpadding=15%>
+<tr bgcolor="#bbffff">
+<td align=center>
+<small>
+  [
+    <a href="#syn">Synopsis</a> |
+    <a href="#desc">Description</a> |
+    <a href="#ret">Return values</a> |
+    <a href="#diag">Diagnostics</a> |
+    <a href="#see">See also</a> |
+    <a href="../doc.html">Back to the NDD package documentation</a>
+  ]
+</small>
+</td>
+</tr>
+</table>
+
+</body>
+</html>

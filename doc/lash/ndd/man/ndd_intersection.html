@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<title>ndd_intersection</title>
+</head>
+
+<body bgcolor=white>
+
+<table align=center width=100% cellpadding=15%>
+<tr bgcolor="#bbffff">
+<td align=center>
+<h2>ndd_intersection</h2>
+<br>
+<small>
+  [
+    <a href="#syn">Synopsis</a> |
+    <a href="#desc">Description</a> |
+    <a href="#ret">Return values</a> |
+    <a href="#diag">Diagnostics</a> |
+    <a href="#see">See also</a> |
+    <a href="../doc.html">Back to the NDD package documentation</a>
+  ]
+</small>
+</td>
+</tr>
+</table>
+
+<h2><a name="syn">Synopsis</a></h2>
+
+<BLOCKQUOTE>
+<KBD>
+#include "lash-ndd.h"<br><br>
+ndd *ndd_intersection(ndd *nd1, ndd *nd2);
+</KBD>
+</BLOCKQUOTE>
+
+<h2><a name="desc">Description</a></h2>
+
+This function computes an NDD representing the intersection of the
+sets represented by the two NDDs <KBD>*nd1</KBD> and <KBD>*nd2</KBD>,
+i.e., the set of all the vectors that belong to both sets. The two
+operand NDDs must use the same base, the same dimension, and operate
+in the same direction.
+
+<P>
+This function does not modify <KBD>*nd1</KBD> or <KBD>*nd2</KBD>.
+
+<h2><a name="ret">Return values</a></h2>
+
+In the case of success, this function returns a pointer to a
+newly created NDD. In the case of an error, it returns
+a NULL pointer and sets 
+<A HREF="../../man/lash_errno.html"><KBD>lash_errno</KBD></A>.
+
+<h2><a name="diag">Diagnostics</a></h2>
+
+<DL>
+<DT> <KBD>LASH_ERR_NOT_INIT</KBD>
+<DD> The package has not been initialized.
+
+<DT> <KBD>LASH_ERR_BASE</KBD>
+<DD> Base mismatch.
+
+<DT> <KBD>LASH_ERR_DIMENSION</KBD>
+<DD> Dimension mismatch.
+
+<DT> <KBD>LASH_ERR_BAD_TYPE</KBD>
+<DD> Direction mismatch.
+
+<DT> <KBD>LASH_ERR_NO_MEM</KBD>
+<DD> Insufficient memory.
+
+<DT> <KBD>LASH_ERR_CORRUPT</KBD>
+<DD> Corrupt NDD.
+</DL>
+
+<h2><a name="see">See also</a></h2>
+
+<A HREF="ndd_union.html"><KBD>ndd_union</KBD></A>,
+<A HREF="ndd_difference.html"><KBD>ndd_difference</KBD></A>
+
+<P>
+<table align=center width=100% cellpadding=15%>
+<tr bgcolor="#bbffff">
+<td align=center>
+<small>
+  [
+    <a href="#syn">Synopsis</a> |
+    <a href="#desc">Description</a> |
+    <a href="#ret">Return values</a> |
+    <a href="#diag">Diagnostics</a> |
+    <a href="#see">See also</a> |
+    <a href="../doc.html">Back to the NDD package documentation</a>
+  ]
+</small>
+</td>
+</tr>
+</table>
+
+</body>
+</html>

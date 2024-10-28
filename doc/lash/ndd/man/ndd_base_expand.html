@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<title>ndd_base_expand, ndd_base_reduce</title>
+</head>
+
+<body bgcolor=white>
+
+<table align=center width=100% cellpadding=15%>
+<tr bgcolor="#bbffff">
+<td align=center>
+<h2>ndd_base_expand, ndd_base_reduce</h2>
+<br>
+<small>
+  [
+    <a href="#syn">Synopsis</a> |
+    <a href="#desc">Description</a> |
+    <a href="#ret">Return values</a> |
+    <a href="#diag">Diagnostics</a> |
+    <a href="#see">See also</a> |
+    <a href="../doc.html">Back to the NDD package documentation</a>
+  ]
+</small>
+</td>
+</tr>
+</table>
+
+<h2><a name="syn">Synopsis</a></h2>
+
+<BLOCKQUOTE>
+<KBD>
+#include "lash-ndd.h"<br><br>
+ndd *ndd_base_expand(ndd *nd);<br>
+ndd *ndd_base_reduce(ndd *nd);
+</KBD>
+</BLOCKQUOTE>
+
+<h2><a name="desc">Description</a></h2>
+
+<P>
+The function <KBD>ndd_base_expand</KBD> computes an NDD representing
+the set { <KBD>r</KBD><sup>k</sup> x | x in S and k in N }, where S is
+the subset of Z represented by the NDD <KBD>*nd</KBD>.  
+The function <KBD>ndd_base_reduce</KBD> computes an NDD representing
+the set { x / <KBD>r</KBD><sup>k</sup> | x in S and k in N }. For
+both functions, the NDD <KBD>*nd</KBD> is supposed to be
+of dimension 1 and to use the numeration base <KBD>r</KBD>.
+
+<P><strong>Warning:</strong> The use of these functions is strongly
+discouraged, since they might no longer appear
+in future releases of the package.
+
+<P>These functions do not modify <KBD>*nd</KBD>.
+
+<h2><a name="ret">Return values</a></h2>
+
+In the case of success, the functions
+return a pointer to a
+newly created NDD.  
+In the case of an error, they return
+a NULL pointer and set 
+<A HREF="../../man/lash_errno.html"><KBD>lash_errno</KBD></A>.
+
+<h2><a name="diag">Diagnostics</a></h2>
+
+<DL>
+<DT> <KBD>LASH_ERR_NOT_INIT</KBD>
+<DD> The package has not been initialized.
+
+<DT> <KBD>LASH_ERR_DIMENSION</KBD>
+<DD> The dimension is not 1.
+
+<DT> <KBD>LASH_ERR_NO_MEM</KBD>
+<DD> Insufficient memory.
+
+<DT> <KBD>LASH_ERR_CORRUPT</KBD>
+<DD> Corrupt NDD.
+</DL>
+
+<h2><a name="see">See also</a></h2>
+
+<A HREF="ndd_create_equation.html"><KBD>ndd_create_equation</KBD></A>.
+
+<P>
+<table align=center width=100% cellpadding=15%>
+<tr bgcolor="#bbffff">
+<td align=center>
+<small>
+  [
+    <a href="#syn">Synopsis</a> |
+    <a href="#desc">Description</a> |
+    <a href="#ret">Return values</a> |
+    <a href="#diag">Diagnostics</a> |
+    <a href="#see">See also</a> |
+    <a href="../doc.html">Back to the NDD package documentation</a>
+  ]
+</small>
+</td>
+</tr>
+</table>
+
+</body>
+</html>

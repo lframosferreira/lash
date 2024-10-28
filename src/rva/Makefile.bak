@@ -1,0 +1,64 @@
+######################################################################
+##                                                                  ##
+##  RVA package -- v0.9                                             ##
+##  ============                                                    ##
+##                                                                  ##
+##     Makefile.                                                    ##
+##                                                                  ##
+##     05/04/01  :  Creation. (SJ)                                  ##
+##     08/06/01  :  Reorganization. (SJ)                            ##
+##     08/20/01  :  Addition of 'rva-io-print'. (SJ)                ##
+##     10/19/01  :  Usage of the NDD package. (SJ)                  ##
+##     11/02/01  :  Addition of 'rva-shifting'. (SJ)                ##
+##     11/07/01  :  Addition of 'rva-tools'. (SJ)                   ##
+##     06/28/02  :  'auto-weak-convert' removed. (SJ)               ##
+##     07/10/02  :  Reorganization. (BB)                            ##
+##                                                                  ##
+##  Copyright (c) 1998-2002, Universite de Liege (ULg). All rights  ##
+##  reserved. This package is provided for evaluation purposes and  ##
+##  educational use only. No guarantee is expressed or implied by   ## 
+##  the distribution of this software. The commercial use and the   ##
+##  redistribution of this product or of any part of it are not     ##
+##  permitted without our prior, express, and written consent.      ##
+##                                                                  ##
+######################################################################
+
+CC = 		gcc
+
+LASH-LIB-DIR =	../../lib/
+
+LASH-CORE-DIR =	../lash-core/
+
+SRCS-RVA =	rva-equations.c \
+		rva-io.c \
+		rva-io-print.c \
+		rva-operations.c \
+		rva-projection.c \
+		rva-sets.c \
+		rva-shifting.c \
+		rva-tests.c \
+		rva-tools.c \
+		rva-transformations.c \
+		rva.c
+
+OBJS-RVA =	${SRCS-RVA:.c=.o}
+
+CFLAGS =  -g -c -O3 -ansi -Wall -Wtraditional -Wpointer-arith \
+         -Waggregate-return -Wstrict-prototypes \
+         -Wmissing-prototypes -Wmissing-declarations \
+         -I$(LASH-CORE-DIR)
+
+all:  rva-package
+
+rva-package: $(OBJS-RVA)
+	ld -r -o rva-package.o $(OBJS-RVA)
+	mv rva-package.o $(LASH-LIB-DIR)
+
+clean:
+	-rm -f $(OBJS-RVA) rva-package.o
+	-rm -f $(LASH-LIB-DIR)/rva-package.o
+
+depend: 
+	makedepend -I$(LASH-CORE-DIR) $(SRCS-RVA)
+
+# DO NOT DELETE THIS LINE -- make depend depends on it.

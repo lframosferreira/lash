@@ -1,0 +1,28 @@
+<program>    ::= { <unit> } +
+<unit>       ::= PROCESS NAME <body>
+               | <decl>
+               | ';'
+<body>       ::= '{' <sequence> '}'
+<sequence>   ::= <step> { ';' <step> } *
+<step>       ::= <decl> | <stmnt>
+<decl>       ::= TYPE <ivar> { ',' <ivar> } *
+               | META '(' <control> ') { ',' <control> } +
+<ivar>       ::= NAME [ ASGN <const> ]
+<control>    ::= NAME
+               | NAME '.' NAME
+<stmnt>      ::= NAME ASGN <expr>
+               | ASSERT <cond>
+               | GOTO NAME
+               | <cond>
+               | SKIP
+               | BREAK
+               | ATOMIC <body>
+               | IF <options> FI
+               | DO <options> OD
+               | NAME ':' <stmnt>
+<options>    ::= { SEP <sequence> } +
+<cond>       ::= <expr> <condop> <expr>
+<expr>       ::= <term> { { '+' | '-' } <term> } *   
+<term>       ::= <const> | NAME | <const> '*' NAME
+<const>      ::= [ '-' ] CONST 
+<condop>     ::= GE | LE | EQ | NE | '<' | '>'

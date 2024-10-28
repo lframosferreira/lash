@@ -1,0 +1,300 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<title>The LASH Toolset</title>
+</head>
+
+<body bgcolor=white>
+
+<table align=center width=100% cellpadding=15%>
+<tr bgcolor="#bbffff">
+<td align=center>
+<h2> The <i>L</i>iège <i>A</i>utomata-based <i>S</i>ymbolic
+<i>H</i>andler (<i>LASH</i>)</h2>
+<br>
+<small>
+  [
+    <a href="#intro">What is it?</a> | 
+    <a href="#download">Where can I find it?</a> |
+    <a href="#doc">How can I use it?</a> |
+    <a href="#ref">References</a> |
+    <a href="#feedback">Feedback</a>
+  ]
+</small>
+</td>
+</tr>
+</table>
+
+<h2><a name="intro">What is it?</a></h2>
+
+<P>
+LASH is a toolset for representing infinite sets and exploring
+infinite state spaces. It is based on <I>finite-state
+representations</I>, which rely on finite-state automata for
+representing and manipulating infinite sets of values over 
+various data domains.
+
+<P> The current version of LASH is beta version 0.9 and consists of 
+<UL>
+<LI> C libraries providing functions and datatypes for performing
+the following tasks:
+<UL>
+<LI> Constructing and manipulating some types of finite-state automata
+(on finite and infinite words).
+<LI> Representing and manipulating finite and infinite sets of
+values. The representation systems implemented by
+LASH are 
+<UL>
+<LI>
+The <I>NDD (Number Decision Diagram)</I>, suited for sets of
+unbounded integer vectors. NDDs are slightly more expressive than
+Presburger arithmetic.
+<LI>
+The <I>RVA (Real Vector Automaton)</I>, suited for sets of unbounded
+real and integer vectors. RVA can represent all the sets that can be
+defined in the first-order combined additive theory of the reals and
+integers.
+<LI>
+The <I>QDD (Queue-content Decision Diagram)</I>, suited for
+sets of contents of unbounded FIFO queues.
+</UL>
+<LI> Exploring the state-space of systems composed of a finite
+control and of unbounded integer variables over which linear
+operations are performed.  
+</UL>
+<LI>
+Front-ends for
+<UL>
+<LI> Compiling program models expressed in the Simple-PROMELA and
+the Simple-IF languages, and exploring the state-space of
+these programs.
+<LI> Solving problems expressed in Presburger arithmetic.
+</UL>
+</UL>
+
+<P>The following features are under development and will soon
+become part of the toolset:
+<UL>
+<LI> State-space exploration tools for timed systems and hybrid
+systems, based on the RVA package.
+<LI> A visualization tool for sets represented by NDDs and RVA.
+</UL>
+
+<P>The LASH toolset is currently maintained by <A
+HREF="http://www.montefiore.ulg.ac.be/~boigelot/">Bernard
+Boigelot</A>,
+<A
+HREF="http://www.montefiore.ulg.ac.be/~latour/">Louis
+Latour</A> and
+<A
+HREF="http://www.montefiore.ulg.ac.be/~jodogne/">Sébastien
+Jodogne</A>.
+
+<P>Past or occasional contributors include Gérard Cécé, <A
+HREF="http://www.montefiore.ulg.ac.be/~francois/">Jean-Marc
+François</A> and <A
+HREF="http://www.info.fundp.ac.be/~ybo/">Yves Bontemps</A>.
+
+<h2><a name="download">Where can I find it?</a></h2>
+
+<P>The C sources of the LASH toolset are available free of charge for
+evaluation purposes and educational use. A copy of the most recent
+version can be downloaded <a
+href="http://www.montefiore.ulg.ac.be/~boigelot/research/lash.tar.gz">here</a>. After
+downloading, please consult the <A
+href="lash/installation.html">installation instructions</A>. The
+toolset documentation can be found in the <a href="#doc">next
+section</a>.
+
+<h2><a name="doc">How can I use it?</a></h2>
+
+<P>Documentation and sample programs are available - or will be
+available soon - for the main
+components of the package:
+
+<UL>
+<LI> <A
+href="lash/installation.html">Installation
+instructions</A>
+<LI> Core package:
+[ <A HREF="lash/doc.html">Documentation</A>
+| <A HREF="lash/ex.html">Examples</A> ]
+<LI> NDD package:
+[ <A HREF="lash/ndd/doc.html">Documentation</A>
+| <A HREF="lash/ndd/ex.html">Examples</A> ]
+<LI> RVA package:
+[ <A HREF="lash/rva/doc.html">Documentation</A>
+| <A HREF="lash/rva/ex.html">Examples</A> ]
+<LI> QDD package:
+[ <A HREF="lash/qdd/doc.html">Documentation</A>
+| <A HREF="lash/qdd/ex.html">Examples</A> ]
+<LI> State-space exploration package: [ 
+<A HREF="lash/expl/doc.html">Documentation</A>
+| <A HREF="lash/expl/ex.html">Examples</A> ]
+<LI> Simple-IF compiler: [ 
+<A HREF="siflash/doc.html">Documentation</A>
+| <A HREF="siflash/ex.html">Examples</A> ]
+<LI> Simple-PROMELA compiler: [ 
+<A HREF="splash/doc.html">Documentation</A>
+| <A HREF="splash/ex.html">Examples</A> ]
+<LI> Presburger solver: [ 
+<A HREF="presburger/doc.html">Documentation</A>
+| <A HREF="presburger/ex.html">Examples</A> ]
+</UL>
+
+<h2><a name="ref">References</a></h2>
+
+<P>The techniques and algorithms implemented in LASH are
+described in the following papers.
+<UL>
+<LI>General:
+<UL>
+<li><p> <a href="http://www.montefiore.ulg.ac.be/~pw">P. Wolper</a>
+and <a href="http://www.montefiore.ulg.ac.be/~boigelot">B. Boigelot</a>.
+<a href="ref/WB98.ps.gz">Verifying Systems with Infinite but Regular State 
+Spaces</a>.
+<i>Proc. 10th International Conference on Computer-Aided
+Verification</i>, volume 1427, <i><a
+href="http://www.springer.de/comp/lncs/">Lecture Notes in Computer
+Science</a></i>, pages 88-97, Vancouver, June 1998, <a
+href="http://www.springer.de">Springer-Verlag</a>.  </p>
+<LI><p><a href="http://www.montefiore.ulg.ac.be/~boigelot">B. Boigelot</a>.
+<a href="ref/Boi98.ps.gz">Symbolic Methods for Exploring Infinite
+State Spaces</a>. <i>PhD Thesis</i>, volume 189, Collection
+des Publications de la <a href="http://www.ulg.ac.be/facsa/">Facult&eacute;
+des Sciences Appliqu&eacute;es</a> de l'<a
+href="http://www.ulg.ac.be">Universit&eacute; de Li&egrave;ge</a>, 
+300 pages, 1999.
+</p>
+<li><p> <a
+href="http://www.montefiore.ulg.ac.be/~boigelot">B. Boigelot</a> and
+<a href="http://www.montefiore.ulg.ac.be/~pw">P. Wolper</a>.
+Representing Arithmetic Constraints with Automata: An Overview.
+To appear in
+<i>Proc. ICLP 2002</i>.</p>
+<LI><p><a
+href="http://www.montefiore.ulg.ac.be/~boigelot">B. Boigelot</a> and
+<a href="http://www.montefiore.ulg.ac.be/~pw">P. Wolper</a>.  <a
+href="ref/BW94.ps.gz"> Symbolic Verification with Periodic
+Sets</a>. <i>Proc. 6th International Conference on Computer-Aided
+Verification</i>, volume 818, <i><a
+href="http://www.springer.de/comp/lncs/">Lecture Notes in Computer
+Science</a></i>, pages 55-67, Stanford, June 1994, <a
+href="http://www.springer.de">Springer-Verlag</a>.
+</p>
+</UL>
+<LI>NDDs:
+<UL>
+<li><p> <a href="http://www.montefiore.ulg.ac.be/~pw">P. Wolper</a>
+and <a
+href="http://www.montefiore.ulg.ac.be/~boigelot">B. Boigelot</a>.  <a
+href="ref/WB95.ps.gz">An Automata-Theoretic Approach to Presburger
+Arithmetic Constraints</a>. <i>Proc. 2nd Static Analysis
+Symposium</i>, volume 983, <i><a
+href="http://www.springer.de/comp/lncs/">Lecture Notes in Computer
+Science</a></i>, pages 21-32, Glasgow, September 1995, <a
+href="http://www.springer.de">Springer-Verlag</a>.</p>
+<li><p> <a
+href="http://www.montefiore.ulg.ac.be/~boigelot">B. Boigelot</a> and
+<a
+href="http://www.montefiore.ulg.ac.be/~latour">L. Latour</a>.
+Counting the Solutions of Presburger Equations without
+Enumerating Them.
+To appear in <i>Proc. International Conference on Implementations and
+Applications of Automata</i>, <i><a
+href="http://www.springer.de/comp/lncs/">Lecture Notes in Computer
+Science</a></i>, Pretoria, July 2001, <a
+href="http://www.springer.de">Springer-Verlag</a>.</p>
+</UL>
+<LI>QDDs:
+<UL>
+<li><p><a
+href="http://www.montefiore.ulg.ac.be/~boigelot">B. Boigelot</a> and
+<a href="http://www.bell-labs.com/user/god">P. Godefroid</a>. <a
+href="ref/BG97qf.ps.gz">Symbolic Verification of Communication Protocols
+with Infinite State Spaces using QDDs</a>, <i><a
+href="http://kapis.www.wkap.nl/kapis/CGI-BIN/WORLD/journalhome.htm?0925-9856">Formal
+Methods in System Design</a></i>, volume 14, pages 237-255, 1999,
+<A HREF="http://www.wkap.nl/">Kluwer Academic Publishers</A>.</p>
+<li><p><a
+href="http://www.montefiore.ulg.ac.be/~boigelot">B. Boigelot</a>, <a
+href="http://www.bell-labs.com/user/god">P. Godefroid</a>, B. Willems
+and <a href="http://www.montefiore.ulg.ac.be/~pw">P. Wolper</a>.  <a
+href="ref/BGWW97-a.ps.gz">The Power of QDDs</a>. <i>Proc. 4th Static
+Analysis Symposium</i>, volume 1302, <i><a
+href="http://www.springer.de/comp/lncs/">Lecture Notes in Computer
+Science</a></i>, pages 172-186, Paris, September 1997, <a
+href="http://www.springer.de">Springer-Verlag</a>.</p>
+<li><p><a
+href="http://www.montefiore.ulg.ac.be/~boigelot">B. Boigelot</a> and
+<a href="http://www.bell-labs.com/user/god">P. Godefroid</a>. <a
+href="ref/BG96q.ps.gz">Symbolic Verification of Communication Protocols
+with Infinite State Spaces using QDDs</a>. <i>Proc. 8th International
+Conference on Computer-Aided Verification</i>, volume 1102, <i><a
+href="http://www.springer.de/comp/lncs/">Lecture Notes in Computer
+Science</a></i>, pages 1-12, New-Brunswick, July 1996, <a
+href="http://www.springer.de">Springer-Verlag</a>.</p>
+</UL>
+<LI>RVA:
+<UL>
+<li><p> <a
+href="http://www.montefiore.ulg.ac.be/~boigelot">B. Boigelot</a>,
+<a
+href="http://www.montefiore.ulg.ac.be/~jodogne">S. Jodogne</a> and
+<a href="http://www.montefiore.ulg.ac.be/~pw">P. Wolper</a>.
+<a
+href="ref/BJW01.ps.gz">On 
+the Use of Weak Automata for Deciding Linear Arithmetic
+with Integer and Real Variables</a>.
+<i>Proc. International Joint Conference on Automated
+Reasoning</i>, volume 2083, <i><a
+href="http://www.springer.de/comp/lncs/">Lecture Notes in Artificial
+Intelligence</a></i>, pages 611-625, Siena, June 2001, <a
+href="http://www.springer.de">Springer-Verlag</a>.</p>
+<li><p><a
+href="http://www.montefiore.ulg.ac.be/~boigelot">B. Boigelot</a>, <a
+href="http://www.montefiore.ulg.ac.be/~bronne">L. Bronne</a> and
+S. Rassart.  <a href="ref/BBR97.ps.gz">An Improved Reachability Analysis
+Method for Strongly Linear Hybrid Systems</a>. <i>Proc. 9th
+International Conference on Computer-Aided Verification</i>, volume
+1254, <i><a href="http://www.springer.de/comp/lncs/">Lecture Notes in
+Computer Science</a></i>, pages 167-177, Haifa, June 1997, <a
+href="http://www.springer.de">Springer-Verlag</a>.  </p>
+<li><p><a
+href="http://www.montefiore.ulg.ac.be/~boigelot">B. Boigelot</a>,
+S. Rassart and <a
+href="http://www.montefiore.ulg.ac.be/~pw">P. Wolper</a>.  <a
+href="ref/BRW98.ps.gz">On the Expressiveness of Real and Integer
+Arithmetic Automata</a>.  <i> Proc. 25th International Colloquium on
+Automata, Languages and Programming</i>, volume 1443, <i><a
+href="http://www.springer.de/comp/lncs/">Lecture Notes in Computer
+Science</a></i>, pages 152-163, Aalborg, July 1998, <a
+href="http://www.springer.de">Springer-Verlag</a>.  </p>
+</UL>
+</UL>
+
+<h2><a name="feedback">Feedback</a></h2>
+
+<P>Questions, suggestions and bug reports are welcome. Please send your
+feedback to <A href="mailto:boigelot@montefiore.ulg.ac.be">Bernard
+Boigelot</A>.
+
+<P>
+<table align=center width=100% cellpadding=15%>
+<tr bgcolor="#bbffff">
+<td align=center>
+<small>
+  [
+    <a href="#intro">What is it?</a> | 
+    <a href="#download">Where can I find it?</a> |
+    <a href="#doc">How can I use it?</a> |
+    <a href="#feedback">Feedback</a>
+  ]
+</small>
+</td>
+</tr>
+</table>
+
+</body>
+</html>

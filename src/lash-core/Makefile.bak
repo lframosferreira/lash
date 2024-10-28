@@ -1,0 +1,105 @@
+######################################################################
+##                                                                  ##
+##  LASH package -- v0.92                                           ##
+##  ============                                                    ##
+##                                                                  ##
+##     Makefile.                                                    ##
+##                                                                  ##
+##     03/13/98  :  Creation. (BB)                                  ##
+##     06/09/98  :  Minor corrections. (BB)                         ##
+##     07/27/98  :  Addition of 'auto-io'. (BB)                     ##
+##     07/28/98  :  Addition of 'auto-basic'. (BB)                  ##
+##     08/05/98  :  Addition of 'datastruct'. (BB)                  ##
+##     09/04/98  :  Reorganization. (BB)                            ##
+##     09/18/98  :  Basic operations. (BB)                          ##
+##     09/22/98  :  NDD package. (BB)                               ##
+##     09/28/98  :  Reorganization. (BB)                            ##
+##     09/29/98  :  New module. (BB)                                ##
+##     10/06/98  :  New module. (BB)                                ##
+##     10/27/98  :  New module. (BB)                                ##
+##     01/05/99  :  New modules. (BB)                               ##
+##     01/15/99  :  New module. (BB)                                ##
+##     01/20/99  :  New module. (BB)                                ##
+##     02/18/99  :  Compilation flag '-ansi'. (BB)                  ##
+##     02/22/99  :  New module. (BB)                                ##
+##     08/01/00  :  New module. (JMF)                               ##
+##     12/10/00  :  New module. (JMF)                               ##
+##     18/10/00  :  New module. (LL) (count & biguint)              ##
+##     02/24/01  :  Reorganization. (BB)                            ##
+##     05/15/01  :  Removed '-Wtraditional' flag. (BB)              ##
+##     08/14/01  :  New source tree. (BB)                           ##
+##     09/26/01  :  Reorganization of 'auto-serialize.c'. (SJ)      ##
+##     06/28/02  :  New module. (SJ)                                ##
+##     07/15/02  :  Reorganization. (BB)                            ##
+##                                                                  ##
+##  Copyright (c) 1998-2002, Universite de Liege (ULg). All rights  ##
+##  reserved. This package is provided for evaluation purposes and  ##
+##  educational use only. No guarantee is expressed or implied by   ## 
+##  the distribution of this software. The commercial use and the   ##
+##  redistribution of this product or of any part of it are not     ##
+##  permitted without our prior, express, and written consent.      ##
+##                                                                  ##
+######################################################################
+
+CC = 		gcc
+
+LASH-LIB-DIR =	../../lib/
+
+SRCS-CORE =	lash.c \
+		diag.c \
+		resource.c \
+		datastruct.c \
+		biguint.c \
+		arithmetic.c \
+		sort.c \
+		datastruct-io.c \
+		graph-scc.c \
+		io-ops.c \
+		auto.c \
+		auto-io.c \
+		auto-io-print.c \
+		auto-io-dots.c \
+		auto-determinize.c \
+		auto-minimize.c \
+		auto-product.c \
+		auto-sequential.c \
+		auto-difference.c \
+		auto-normalize.c \
+		auto-quotient.c \
+		auto-operations.c \
+		auto-count.c \
+		auto-serialize.c \
+		auto-weak-convert.c \
+		auto-depth.c \
+		auto-sort.c
+
+SRCS-ARITH =	cyclotomic.c \
+		matrix.c
+
+OBJS-CORE =	${SRCS-CORE:.c=.o}
+
+OBJS-ARITH =	${SRCS-ARITH:.c=.o}
+
+CFLAGS =   -c -g -O3 -ansi -Wall -Wpointer-arith \
+         -Waggregate-return -Wstrict-prototypes \
+         -Wmissing-prototypes -Wmissing-declarations
+
+all:  lash-core lash-arith
+
+lash-core: $(OBJS-CORE)
+	ld -r -o lash-core.o $(OBJS-CORE)
+	mv lash-core.o $(LASH-LIB-DIR)
+
+lash-arith: $(OBJS-ARITH)
+	ld -r -o lash-arith.o $(OBJS-ARITH) 
+	mv lash-arith.o $(LASH-LIB-DIR)
+
+clean:
+	-rm -f $(OBJS-CORE) $(OBJS-ARITH) lash-core.o lash-arith.o
+	-rm -f $(LASH-LIB-DIR)/lash-core.o
+	-rm -f $(LASH-LIB-DIR)/lash-arith.o
+
+depend: 
+	makedepend $(SRCS-CORE) $(SRCS-ARITH)
+
+# DO NOT DELETE THIS LINE -- make depend depends on it.

@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<title>ndd_create_transf_info</title>
+</head>
+
+<body bgcolor=white>
+
+<table align=center width=100% cellpadding=15%>
+<tr bgcolor="#bbffff">
+<td align=center>
+<h2>ndd_create_transf_info</h2>
+<br>
+<small>
+  [
+    <a href="#syn">Synopsis</a> |
+    <a href="#desc">Description</a> |
+    <a href="#ret">Return values</a> |
+    <a href="#diag">Diagnostics</a> |
+    <a href="#see">See also</a> |
+    <a href="../doc.html">Back to the NDD package documentation</a>
+  ]
+</small>
+</td>
+</tr>
+</table>
+
+<h2><a name="syn">Synopsis</a></h2>
+
+<BLOCKQUOTE>
+<KBD>
+#include "lash-ndd.h"<br><br>
+linear_tr_info *ndd_create_transf_info(linear_transf *tr, uint1 r,
+int msdf);
+</KBD>
+</BLOCKQUOTE>
+
+<h2><a name="desc">Description</a></h2>
+
+<p>
+This function creates a specific structure associated to the linear
+transformation <kbd>*tr</kbd>, whose purpose is to speed up the computation of
+the image of sets by <kbd>*tr</kbd>. 
+
+<p>This structure, which is not directly visible to the user,
+is actually a transducer, i.e., an NDD accepting all the
+vectors of the form [x<sub>0</sub>, x<sub>0</sub>',
+x<sub>1</sub>, x<sub>1</sub>',  ...,
+x<sub>n-1</sub>, x<sub>n-1</sub>'], where
+[x<sub>0</sub>', x<sub>1</sub>', ..., x<sub>n-1</sub>'] =
+<kbd>tr</kbd>([x<sub>0</sub>, x<sub>1</sub>, ..., x<sub>n-1</sub>]).
+The numeration base used for
+creating that NDD is <kbd>r</kbd>. Numbers are accepted most significant digit
+first if <kbd>msdf</kbd> has a nonzero value, and least significant digit first
+otherwise.
+
+<p>
+This function does not modify <kbd>*tr</kbd>.
+
+<h2><a name="ret">Return values</a></h2>
+
+In the case of success, this function returns a pointer to a
+newly created transformation information structure.
+In the case of an error, it returns a NULL pointer
+and sets
+<A HREF="../../man/lash_errno.html"><KBD>lash_errno</KBD></A>.
+
+<h2><a name="diag">Diagnostics</a></h2>
+
+<DL>
+<DT> <KBD>LASH_ERR_NOT_INIT</KBD>
+<DD> The package has not been initialized.
+
+<DT> <KBD>LASH_ERR_NO_MEM</KBD>
+<DD> Not enough memory.
+
+<DT> <KBD>LASH_ERR_BAD_VALUE</KBD>
+<DD> Invalid parameter value.
+
+<DT> <KBD>LASH_ERR_CORRUPT</KBD>
+<DD> Corrupt transformation structure.
+</DL>
+
+<h2><a name="see">See also</a></h2>
+
+<A HREF="linear_transf.html"><KBD>linear_transf</KBD></A>, <A
+HREF="linear_tr_info.html"><KBD>linear_tr_info</KBD></A>, <A
+HREF="ndd_image_by_transf_info.html"><KBD>ndd_image_by_transf_info</KBD></A>,
+<A
+HREF="ndd_transf_info_free.html"><KBD>ndd_transf_info_free</KBD></A>.
+
+<P>
+<table align=center width=100% cellpadding=15%>
+<tr bgcolor="#bbffff">
+<td align=center>
+<small>
+  [
+    <a href="#syn">Synopsis</a> |
+    <a href="#desc">Description</a> |
+    <a href="#ret">Return values</a> |
+    <a href="#diag">Diagnostics</a> |
+    <a href="#see">See also</a> |
+    <a href="../doc.html">Back to the NDD package documentation</a>
+  ]
+</small>
+</td>
+</tr>
+</table>
+
+</body>
+</html>

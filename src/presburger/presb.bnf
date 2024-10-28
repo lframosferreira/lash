@@ -1,0 +1,15 @@
+ <presburger>    ::= <condition>
+ <condition>     ::= FORALL '(' <name> { ',' <name> }* : <condition> ')'
+ <condition>     ::= EXISTS '(' <name> { ',' <name> }* : <condition> ')'
+ <condition>     ::= <cond1> | <condition> OR <cond1>
+ <cond1>         ::= <cond2> | <cond1> AND <cond2>
+ <cond2>         ::= <atom_cond> | NOT <atom_cond>
+ <atom_cond>     ::= '(' <condition> ')'
+ <atom_cond>     ::= <expr> <op> <expr>
+ <op>            ::= '<=' | '=' | '>=' | '<' | '>' | '!='
+ <expr>          ::= [+|-] <term> { { '+' | '-' } <term> }*   
+ <term>          ::= <const> | <const> '*' <name> | <name>
+ <const>         ::= {'0'-'9'}+
+ <name>          ::= {'a'-'z','A'-'Z'} {'a'-'z','A'-'Z', '_', '0'-'9'}*   
+
+

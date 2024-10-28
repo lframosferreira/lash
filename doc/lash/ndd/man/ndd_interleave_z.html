@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<title>ndd_interleave_z</title>
+</head>
+
+<body bgcolor=white>
+
+<table align=center width=100% cellpadding=15%>
+<tr bgcolor="#bbffff">
+<td align=center>
+<h2>ndd_interleave_z</h2>
+<br>
+<small>
+  [
+    <a href="#syn">Synopsis</a> |
+    <a href="#desc">Description</a> |
+    <a href="#ret">Return values</a> |
+    <a href="#diag">Diagnostics</a> |
+    <a href="#see">See also</a> |
+    <a href="../doc.html">Back to the NDD package documentation</a>
+  ]
+</small>
+</td>
+</tr>
+</table>
+
+<h2><a name="syn">Synopsis</a></h2>
+
+<BLOCKQUOTE>
+<KBD>
+#include "lash-ndd.h"<br><br>
+ndd *ndd_interleave_z(ndd *nd, uint4 nl, uint4 nr);
+</KBD>
+</BLOCKQUOTE>
+
+<h2><a name="desc">Description</a></h2>
+
+<P>
+This function takes as arguments an NDD <KBD>*nd</KBD> representing a
+set S of dimension n as well as two integers <KBD>nl</KBD> and
+<KBD>nr</KBD>.  Only one of these two integers may be different from
+zero, and this nonzero integer (if any) must divide n. 
+
+<P>
+If <KBD>nl</KBD> is different from zero, then the function computes an
+NDD representing the set of all the vectors of dimension
+n(<KBD>nl</KBD>+1)/<KBD>nl</KBD> of the form (x<sub>1</sub>,
+x<sub>2</sub>, ..., x<sub><KBD>nl</KBD></sub>, y<sub>1</sub>,
+x<sub><KBD>nl</KBD>+1</sub>, x<sub><KBD>nl</KBD>+2</sub>, ...,
+x<sub>2<KBD>nl</KBD></sub>, y<sub>2</sub>, ...,
+x<sub>n-<KBD>nl</KBD>+1</sub>, x<sub>n-<KBD>nl</KBD>+2</sub>, ...,
+x<sub>n</sub>, y<sub>n/<KBD>nl</KBD></sub>), where (x<sub>1</sub>,
+x<sub>2</sub>, ..., x<sub>n</sub>) is a vector in S, and
+(y<sub>1</sub>, y<sub>2</sub>, ..., y<sub>n/<KBD>nl</KBD></sub>) is
+arbitrary.
+
+<P>
+If <KBD>nr</KBD> is different from zero, then the function computes an
+NDD representing the set of all the vectors of dimension
+n(<KBD>nr</KBD>+1)/<KBD>nr</KBD> of the form
+(y<sub>1</sub>, x<sub>1</sub>,
+x<sub>2</sub>, ..., x<sub><KBD>nr</KBD></sub>, y<sub>2</sub>,
+x<sub><KBD>nr</KBD>+1</sub>, x<sub><KBD>nr</KBD>+2</sub>, ...,
+x<sub>2<KBD>nr</KBD></sub>, ..., y<sub>n/<KBD>nr</KBD></sub>,
+x<sub>n-<KBD>nr</KBD>+1</sub>, x<sub>n-<KBD>nr</KBD>+2</sub>, ...,
+x<sub>n</sub>), where (x<sub>1</sub>,
+x<sub>2</sub>, ..., x<sub>n</sub>) is a vector in S, and
+(y<sub>1</sub>, y<sub>2</sub>, ..., y<sub>n/<KBD>nr</KBD></sub>) is
+arbitrary.
+
+<P>This function does not modify <KBD>*nd</KBD>.
+
+<h2><a name="ret">Return values</a></h2>
+
+In the case of success, the function
+returns a pointer to a
+newly created NDD.  
+In the case of an error, it returns
+a NULL pointer and sets 
+<A HREF="../../man/lash_errno.html"><KBD>lash_errno</KBD></A>.
+
+<h2><a name="diag">Diagnostics</a></h2>
+
+<DL>
+<DT> <KBD>LASH_ERR_NOT_INIT</KBD>
+<DD> The package has not been initialized.
+
+<DT> <KBD>LASH_ERR_BAD_VALUE</KBD>
+<DD> Bad parameters.
+
+<DT> <KBD>LASH_ERR_NOT_IMPL</KBD>
+<DD> Not yet implemented for non-serial NDDs.
+
+<DT> <KBD>LASH_ERR_NO_MEM</KBD>
+<DD> Not enough memory.
+
+
+<DT> <KBD>LASH_ERR_CORRUPT</KBD>
+<DD> Corrupt NDD.
+</DL>
+
+<h2><a name="see">See also</a></h2>
+
+<A HREF="ndd_projection.html"><KBD>ndd_projection</KBD></A>,
+<A HREF="ndd_product.html"><KBD>ndd_product</KBD></A>.
+
+<P>
+<table align=center width=100% cellpadding=15%>
+<tr bgcolor="#bbffff">
+<td align=center>
+<small>
+  [
+    <a href="#syn">Synopsis</a> |
+    <a href="#desc">Description</a> |
+    <a href="#ret">Return values</a> |
+    <a href="#diag">Diagnostics</a> |
+    <a href="#see">See also</a> |
+    <a href="../doc.html">Back to the NDD package documentation</a>
+  ]
+</small>
+</td>
+</tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<title>lash_get_max_mem_usage, lash_get_mem_usage, 
+lash_reset_max_mem_usage</title>
+</head>
+
+<body bgcolor=white>
+
+<table align=center width=100% cellpadding=15%>
+<tr bgcolor="#bbffff">
+<td align=center>
+<h2>lash_get_max_mem_usage, lash_get_mem_usage, 
+lash_reset_max_mem_usage</h2>
+<br>
+<small>
+  [
+    <a href="lash_mem_usage.html#syn">Synopsis</a> |
+    <a href="lash_mem_usage.html#desc">Description</a> |
+    <a href="lash_mem_usage.html#ret">Return values</a> |
+    <a href="lash_mem_usage.html#diag">Diagnostics</a> |
+    <a href="../doc.html">Back to core package documentation</a>
+  ]
+</small>
+</td>
+</tr>
+</table>
+
+<h2><a name="syn">Synopsis</a></h2>
+
+<BLOCKQUOTE>
+<KBD>
+#include "lash-diag.h"<br><br>
+uint8 lash_get_max_mem_usage(void);<br>
+uint8 lash_get_mem_usage(void);<br>
+void  lash_reset_max_mem_usage(void);
+</KBD>
+</BLOCKQUOTE>
+
+<h2><a name="desc">Description</a></h2>
+
+These functions report the amount of memory dynamically allocated by
+the package. The current amount is returned by
+<KBD>lash_get_mem_usage</KBD>, and the maximum amount since
+initialization or last reset is returned by
+<KBD>lash_get_max_mem_usage</KBD>. The reported maximum amount of
+memory can be
+reset by calling <KBD>lash_reset_max_mem_usage</KBD>.
+
+<h2><a name="ret">Return values</a></h2>
+
+The functions <KBD>lash_get_mem_usage</KBD> and 
+<KBD>lash_get_max_mem_usage</KBD> return an amount of memory
+expressed
+in bytes.
+
+<P> It should be noted that the reported amounts correspond to the
+quantity of memory requested by the package to the C library's
+<KBD>malloc</KBD> allocation function. Depending on the
+implementation of this function, the reported amount can be
+significantly less than the actual quantity of memory allocated to
+the user process.
+
+<h2><a name="diag">Diagnostics</a></h2>
+
+These functions do not report errors.
+
+<P>
+<table align=center width=100% cellpadding=15%>
+<tr bgcolor="#bbffff">
+<td align=center>
+<small>
+  [
+    <a href="lash_mem_usage.html#syn">Synopsis</a> |
+    <a href="lash_mem_usage.html#desc">Description</a> |
+    <a href="lash_mem_usage.html#ret">Return values</a> |
+    <a href="lash_mem_usage.html#diag">Diagnostics</a> |
+    <a href="../doc.html">Back to core package documentation</a>
+  ]
+</small>
+</td>
+</tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+######################################################################
+##                                                                  ##
+##  LASH Simple-Promela compiler -- v0.9                            ##
+##  ============================                                    ##
+##                                                                  ##
+##     Makefile.                                                    ##
+##                                                                  ##
+##     06/30/00  :  Creation. (BB)                                  ##
+##     02/12/01  :  Reorganization. (BB)                            ##
+##     08/13/01  :  New source tree. (BB)                           ##
+##     07/17/02  :  Reorganization. (BB)                            ##
+##                                                                  ##
+##  Copyright (c) 1998-2002, Universite de Liege (ULg). All rights  ##
+##  reserved. This package is provided for evaluation purposes and  ##
+##  educational use only. No guarantee is expressed or implied by   ##
+##  the distribution of this software. The commercial use and the   ##
+##  redistribution of this product or of any part of it are not     ##
+##  permitted without our prior, express, and written consent.      ##
+##                                                                  ##
+######################################################################
+
+CC = 		gcc
+
+LASH-BIN-DIR = 	../../bin
+LASH-LIB-DIR = 	../../lib
+
+LASH-CORE-DIR =	../lash-core/
+LASH-NDD-DIR  =	../ndd/
+
+LASH-CORE   =	$(LASH-LIB-DIR)/lash-core.o
+LASH-ARITH  =   $(LASH-LIB-DIR)/lash-arith.o
+NDD-PACKAGE = 	$(LASH-LIB-DIR)/ndd-package.o
+
+SRCS-SPLASH =	lexical.c \
+		semantic.c \
+		program.c \
+		output.c \
+		explore.c \
+		splash.c
+
+OBJS-SPLASH =	${SRCS-SPLASH:.c=.o}
+
+CFLAGS =  -g -c -O3 -ansi -Wall -Wtraditional -Wpointer-arith \
+         -Waggregate-return -Wstrict-prototypes \
+         -Wmissing-prototypes -Wmissing-declarations \
+         -I$(LASH-CORE-DIR) -I$(LASH-NDD-DIR)
+
+all: splash
+
+splash: $(OBJS-SPLASH)
+	$(CC) -g -o splash $(OBJS-SPLASH) $(LASH-CORE) $(LASH-ARITH) \
+        $(NDD-PACKAGE)
+	mv splash $(LASH-BIN-DIR)
+
+clean:
+	-rm -f $(OBJS-SPLASH) splash $(LASH-BIN-DIR)/splash
+
+depend: 
+	makedepend -I$(LASH-CORE-DIR) -I$(LASH-NDD-DIR) $(SRCS-SPLASH)
+
+# DO NOT DELETE THIS LINE -- make depend depends on it.

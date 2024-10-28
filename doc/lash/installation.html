@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<title>Installation instructions</title>
+</head>
+
+<body bgcolor=white>
+
+<table align=center width=100% cellpadding=15%>
+<tr bgcolor="#bbffff">
+<td align=center>
+<h2>Installation instructions</h2>
+<br>
+<small>
+  [
+    <a href="../lash.html">Back to LASH main documentation</a>
+  ]
+</small>
+</td>
+</tr>
+</table>
+
+<P> These installation instructions apply to Unix systems. The
+current version of the package has been tested with
+Solaris 2.8 on Sun Sparc machines as well as with Linux 2.4.x
+on Intel processors, but is probably compatible with
+other operating systems and platforms. If you experience installation
+problems, or if you manage to successfully build the package under
+another OS, please <A HREF="mailto:boigelot@montefiore.ulg.ac.be">let
+me know</A>.
+
+<OL>
+<LI><P>Uncompress and extract the distribution.
+<P>
+<kbd>
+gunzip lash-v0.9.tar.gz<br>
+tar xvf lash-v0.9.tar
+</kbd>
+
+<LI><P>Build the package.
+<P>
+<kbd>
+cd lash-v0.9<br>
+make clean<br>
+make depend<br>
+make
+</kbd>
+</OL>
+
+<P>
+The LASH executables can then be found in the subdirectory
+<KBD>bin/</KBD>. The LASH libraries are located in the directory
+<KBD>lib/</KBD>.  These can be linked to your own programs by running
+<KBD>ld</KBD>, or your compiler.
+
+<P><STRONG>Examples:</STRONG>
+
+<P>
+<UL>
+<li>
+<kbd>
+gcc -c my-prog.c<br>
+ld my-prog.o lib/lash-core.o lib/lash-arith.o lib/ndd-package.o
+</kbd>
+<P><li>
+<kbd>
+gcc my-prog.c lib/lash-core.o lib/lash-arith.o lib/ndd-package.o<br>
+</kbd>
+<P><li>
+<kbd>
+splash -v lift.spl
+</kbd>
+<P><li>
+<kbd>
+siflash -v lift.if
+</kbd>
+<P><li>
+<kbd>
+presburger formula.prsb
+</kbd>
+</UL>
+
+<P>
+<table align=center width=100% cellpadding=15%>
+<tr bgcolor="#bbffff">
+<td align=center>
+<small>
+  [
+    <a href="../lash.html">Back to LASH main documentation</a>
+  ]
+</small>
+</td>
+</tr>
+</table>
+
+</body>
+</html>
+
+
+

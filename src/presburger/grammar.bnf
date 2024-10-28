@@ -1,0 +1,21 @@
+<expression>	::= 	<term> { { '+' | '-' } <term> }*
+		
+<term>		::=	<const> | NAME | <const> '*' NAME 
+		| 	'(' <expression> ')'
+		
+<const> 	::=	[ '-' ] CONST
+
+<atom_cond>		::=  <expression> <condop> <expression> 
+
+<condition> 	::=  { <atom_cond> | '(' <condition> ')' } { OR | AND }
+		     { <atom_cond> | '(' <condition> ')' }
+
+<condition> 	::= NOT <atom_cond>
+
+<condition> 	::= NOT '(' <condition ')'
+
+<condition> 	::= FORALL  '(' NAME { ',' NAME }* ':'  <condition ')'
+
+<condition>     ::= EXISTS '(' NAME { ',' NAME }*  ':'  <condition ')'
+
+<condop>	::= 	'>=' | '<=' | '=' | '!=' | '>' | '<'

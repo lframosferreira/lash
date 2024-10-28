@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<title>ndd_create_empty, ndd_create_empty_lsdf, ndd_create_empty_msdf</title>
+</head>
+
+<body bgcolor=white>
+
+<table align=center width=100% cellpadding=15%>
+<tr bgcolor="#bbffff">
+<td align=center>
+<h2>ndd_create_empty, ndd_create_empty_lsdf, ndd_create_empty_msdf</h2>
+<br>
+<small>
+  [
+    <a href="#syn">Synopsis</a> |
+    <a href="#desc">Description</a> |
+    <a href="#ret">Return values</a> |
+    <a href="#diag">Diagnostics</a> |
+    <a href="#see">See also</a> |
+    <a href="../doc.html">Back to the NDD package documentation</a>
+  ]
+</small>
+</td>
+</tr>
+</table>
+
+<h2><a name="syn">Synopsis</a></h2>
+
+<BLOCKQUOTE>
+<KBD>
+#include "lash-ndd.h"<br><br>
+ndd *ndd_create_empty(uint1 r, uint4 n, int msdf);<br>
+ndd *ndd_create_empty_lsdf(uint1 r, uint4 n);<br>
+ndd *ndd_create_empty_msdf(uint1 r, uint4 n);<br>
+</KBD>
+</BLOCKQUOTE>
+
+<h2><a name="desc">Description</a></h2>
+
+The function <KBD>ndd_create_empty</KBD> creates a new NDD
+representing the empty set. The numeration base is <KBD>r</KBD>, and the
+dimension of the set is <KBD>n</KBD>. The vectors are read most significant
+digit first if <KBD>msdf</KBD> is different from zero, and
+least significant digit first otherwise.
+
+<P>
+The macros <KBD>ndd_create_empty_lsdf</KBD> and
+<KBD>ndd_create_empty_msdf</KBD> can be used to create NDDs operating
+in a fixed direction.
+
+<h2><a name="ret">Return values</a></h2>
+
+In the case of success, these function and macros return a pointer
+to a newly allocated NDD. In the case of an error, they return
+a NULL pointer and set 
+<A HREF="../../man/lash_errno.html"><KBD>lash_errno</KBD></A>.
+
+<h2><a name="diag">Diagnostics</a></h2>
+
+<DL>
+<DT> <KBD>LASH_ERR_NOT_INIT</KBD>
+<DD> The package has not been initialized.
+
+<DT> <KBD>LASH_ERR_NO_MEM</KBD>
+<DD> Insufficient memory.
+
+<DT> <KBD>LASH_ERR_BAD_VALUE</KBD>
+<DD> Invalid base (the base must be at least equal to 2).
+</DL>
+
+<h2><a name="see">See also</a></h2>
+
+<A HREF="ndd_free.html"><KBD>ndd_free</KBD></A>
+
+<P>
+<table align=center width=100% cellpadding=15%>
+<tr bgcolor="#bbffff">
+<td align=center>
+<small>
+  [
+    <a href="#syn">Synopsis</a> |
+    <a href="#desc">Description</a> |
+    <a href="#ret">Return values</a> |
+    <a href="#diag">Diagnostics</a> |
+    <a href="#see">See also</a> |
+    <a href="../doc.html">Back to the NDD package documentation</a>
+  ]
+</small>
+</td>
+</tr>
+</table>
+
+</body>
+</html>

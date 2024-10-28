@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<title>linear_star_info</title>
+</head>
+
+<body bgcolor=white>
+
+<table align=center width=100% cellpadding=15%>
+<tr bgcolor="#bbffff">
+<td align=center>
+<h2>linear_star_info</h2>
+<br>
+<small>
+  [
+    <a href="#syn">Synopsis</a> |
+    <a href="#desc">Description</a> |
+    <a href="#see">See also</a> |
+    <a href="../doc.html">Back to the NDD package documentation</a>
+  ]
+</small>
+</td>
+</tr>
+</table>
+
+<h2><a name="syn">Synopsis</a></h2>
+
+<BLOCKQUOTE>
+<KBD>
+#include "lash-ndd.h"<br><br>
+linear_star_info<br>
+</KBD>
+</BLOCKQUOTE>
+
+<h2><a name="desc">Description</a></h2>
+
+This datatype holds an internal representation of the closure of a linear
+transformation. After having been created (by a call
+to the function 
+<A
+HREF="ndd_create_star_info.html"><KBD>ndd_create_star_info</KBD></A>),
+ this internal
+representation can be used for computing efficiently the result of
+applying repeatedly
+its underlying transformation to sets of integer vectors represented
+by NDDs. An instance of
+<A HREF="linear_star_info.html"><KBD>linear_star_info</KBD></A> can be
+freed by calling the function
+<A HREF="ndd_star_info_free.html"><KBD>ndd_star_info_free</KBD></A>.
+
+<h2><a name="see">See also</a></h2>
+
+<A HREF="linear_transf.html"><KBD>linear_transf</KBD></A>,
+<A
+HREF="ndd_create_star_info.html"><KBD>ndd_create_star_info</KBD></A>,
+<A HREF="ndd_star_info_free.html"><KBD>ndd_star_info_free</KBD></A>.
+
+<P>
+<table align=center width=100% cellpadding=15%>
+<tr bgcolor="#bbffff">
+<td align=center>
+<small>
+  [
+    <a href="#syn">Synopsis</a> |
+    <a href="#desc">Description</a> |
+    <a href="#see">See also</a> |
+    <a href="../doc.html">Back to the NDD package documentation</a>
+  ]
+</small>
+</td>
+</tr>
+</table>
+
+</body>
+</html>

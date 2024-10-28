@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<title>LASH core package documentation</title>
+</head>
+
+<body bgcolor=white>
+
+<table align=center width=100% cellpadding=15%>
+<tr bgcolor="#bbffff">
+<td align=center>
+<h2>LASH core package documentation</h2>
+<br>
+<small>
+  [ <a href="doc.html#gen">Generalities</a> |
+    <a href="doc.html#data">Datatypes</a> |
+    <a href="doc.html#fn">Functions</a> |
+    <a href="doc.html#var">Variable</a> |
+    <a href="../lash.html">Back to LASH main documentation</a>
+  ]
+</small>
+</td>
+</tr>
+</table>
+
+<h2><a name="gen">Generalities</a></h2>
+
+The LASH toolset is implemented in part as C libraries which can be linked to
+user applications. These applications should comply to the following
+guidelines: 
+
+<UL>
+<P>
+<LI> 
+The functions and datatypes provided by the toolset and used by an 
+application must be declared in the code of this application. 
+The package provides
+<EM>header files</EM> (<KBD>*.h</KBD>)
+containing the necessary declarations. These files can be included in the
+application code by means of the <KBD>#include</KBD>
+directive of the C preprocessor. The header files follow a naming 
+convention: The name of
+the files that are intended to be included in user applications
+begin with <KBD>lash</KBD> (e.g., <KBD>lash-ndd.h</KBD>). For each library
+function or datatype, the header files that must necessarily be
+included in order to use this function or datatype are listed in its
+manual page.
+<P>
+<LI> 
+The function <A HREF="man/lash_init.html"><KBD>lash_init</KBD></A>,
+which initializes LASH, must be called prior to calling any
+other package function.
+Similarly, the function 
+<A HREF="man/lash_end.html"><KBD>lash_end</KBD></A>, which shuts down
+the package, should be called before exiting the user application.
+<P>
+<LI> 
+The LASH package relies on the C <KBD>malloc/free</KBD> functions for
+managing dynamic memory. As a consequence, user applications
+should refrain from implementing memory allocation schemes
+that are not compatible with malloc/free. It should also be noted
+that objects allocated by LASH can only be freed by calling the
+appropriate LASH functions. Attempting to unallocate such an
+objet by calling the standard C library's <KBD>free</KBD> function
+would result in most cases in a memory leak. 
+<P>
+<LI> 
+When compiling a user application, one should not forget to
+specify the proper search directories for header files and for the library
+object files. The header files of the core package are located in
+the <KBD>src/lash-core/</KBD> subdirectory of the main toolset directory.
+There are two library object files related to the core package,
+both located in the <KBD>lib/</KBD> subdirectory:
+<ul>
+<P><li><KBD>lash-core.o</KBD>: main functions
+<P><li><KBD>lash-arith.o</KBD>: additional functions required by
+the NDD and the RVA packages
+</ul>
+<P>
+For instance, in order to compile <KBD>my-prog.c</KBD>
+with <KBD>gcc,</KBD> the directory in which LASH has been 
+<A HREF="installation.html">installed</A> being
+<KBD>/home/lash/</KBD>, one can use the following command
+line: 
+<P>
+<KBD>
+gcc -I/home/lash/src/lash-core/ my-prog.c /home/lash/lib/lash-package.o 
+</KBD>
+</UL>
+
+<h2><a name="data">Datatypes</a></h2>
+
+The following datatypes are provided by the core package: 
+<BLOCKQUOTE>
+<A HREF="man/sint.html"><KBD>sint1, sint4, sint8</KBD></A> :
+Architecture-independent signed integers.<BR>
+<A HREF="man/uint.html"><KBD>uint1, uint4, uint8</KBD></A> :
+Architecture-independent unsigned integers.
+</BLOCKQUOTE>
+
+<h2><a name="fn">Functions</a></h2>
+
+The following functions are provided by the core package: 
+<BLOCKQUOTE>
+<A HREF="man/lash_init.html"><KBD>lash_init</KBD></A> : Initializes
+the package.<BR>
+<A HREF="man/lash_end.html"><KBD>lash_end</KBD></A> : Shuts down the
+package.<BR><BR>
+<A HREF="man/lash_mem_usage.html"><KBD>lash_get_max_mem_usage,
+lash_get_mem_usage, lash_reset_max_mem_usage</KBD></A> : Manage
+memory usage statistics.<BR><BR>
+<A HREF="man/lash_perror.html"><KBD>lash_perror</KBD></A> : 
+Reports an error.
+</BLOCKQUOTE>
+
+<h2><a name="var">Variable</a></h2>
+
+The following variable is provided by the core package: 
+<BLOCKQUOTE>
+<A HREF="man/lash_errno.html"><KBD>lash_errno</KBD></A> : Most recent
+error code.
+</BLOCKQUOTE>
+
+<P>
+<table align=center width=100% cellpadding=15%>
+<tr bgcolor="#bbffff">
+<td align=center>
+<small>
+  [ <a href="doc.html#gen">Generalities</a> |
+    <a href="doc.html#data">Datatypes</a> |
+    <a href="doc.html#fn">Functions</a> |
+    <a href="doc.html#var">Variable</a> |
+    <a href="../lash.html">Back to LASH main documentation</a>
+  ]
+</small>
+</td>
+</tr>
+</table>
+
+</body>
+</html>

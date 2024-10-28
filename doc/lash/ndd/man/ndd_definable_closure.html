@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<title>ndd_definable_closure</title>
+</head>
+
+<body bgcolor=white>
+
+<table align=center width=100% cellpadding=15%>
+<tr bgcolor="#bbffff">
+<td align=center>
+<h2>ndd_definable_closure</h2>
+<br>
+<small>
+  [
+    <a href="#syn">Synopsis</a> |
+    <a href="#desc">Description</a> |
+    <a href="#ret">Return values</a> |
+    <a href="#diag">Diagnostics</a> |
+    <a href="#see">See also</a> |
+    <a href="../doc.html">Back to the NDD package documentation</a>
+  ]
+</small>
+</td>
+</tr>
+</table>
+
+<h2><a name="syn">Synopsis</a></h2>
+
+<BLOCKQUOTE>
+<KBD>
+#include "lash-ndd.h"<br><br>
+int ndd_definable_closure(uint1 r, linear_transf *tr, int *pb, uint4
+*pm, uint4 *pp);
+</KBD>
+</BLOCKQUOTE>
+
+<h2><a name="desc">Description</a></h2>
+
+<p>
+This function tests whether the transformation matrix A of the linear
+transformation <kbd>*tr</kbd> has a nonzero integer power p such that
+A<sup>p</sup> is diagonalizable and has all its eigenvalues in the set
+{ 0, <kbd>r</kbd><sup>m</sup> }, where m is a positive or zero
+integer. It has been shown that this condition being true implies
+that the effect of unbounded repeated iterations of <kbd>*tr</kbd>
+can be applied to sets of vectors represented by NDDs.
+
+<p>
+This function does not modify <kbd>*tr</kbd>.
+
+<h2><a name="ret">Return values</a></h2>
+
+<p>
+If the test succeeds, then the function writes 1 at the location
+<kbd>pb</kbd>, and sets respectively <kbd>*pp</kbd> and <kbd>*pm</kbd>
+to the values of <kbd>p</kbd> and <kbd>m</kbd> that have been
+determined. If the test fails, then the function writes 0 at the
+location <kbd>pb</kbd>.
+
+In the case of an error, the function returns -1 and does not set
+<kbd>*pb</kbd>, <kbd>*pm</kbd> or <kbd>*pp</kbd>. Otherwise, it
+returns 0 and sets <A
+HREF="../../man/lash_errno.html"><KBD>lash_errno</KBD></A>.
+
+<h2><a name="diag">Diagnostics</a></h2>
+
+<DL>
+<DT> <KBD>LASH_ERR_NOT_INIT</KBD>
+<DD> The package has not been initialized.
+
+<DT> <KBD>LASH_ERR_NO_MEM</KBD>
+<DD> Not enough memory.
+
+<DT> <KBD>LASH_ERR_OVERFLOW</KBD>
+<DD> Arithmetic overflow.
+
+<DT> <KBD>LASH_ERR_BAD_VALUE</KBD>
+<DD> Invalid parameter value.
+
+<DT> <KBD>LASH_ERR_CORRUPT</KBD>
+<DD> Corrupt transformation structure.
+</DL>
+
+<h2><a name="see">See also</a></h2>
+
+<A HREF="linear_transf.html"><KBD>linear_transf</KBD></A>,
+<A HREF="ndd_image_by_star_transf.html"><KBD>ndd_image_by_star_transf</KBD></A>.
+
+<P>
+<table align=center width=100% cellpadding=15%>
+<tr bgcolor="#bbffff">
+<td align=center>
+<small>
+  [
+    <a href="#syn">Synopsis</a> |
+    <a href="#desc">Description</a> |
+    <a href="#ret">Return values</a> |
+    <a href="#diag">Diagnostics</a> |
+    <a href="#see">See also</a> |
+    <a href="../doc.html">Back to the NDD package documentation</a>
+  ]
+</small>
+</td>
+</tr>
+</table>
+
+</body>
+</html>

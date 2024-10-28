@@ -1,0 +1,221 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<title>NDD package documentation</title>
+</head>
+
+<body bgcolor=white>
+
+<table align=center width=100% cellpadding=15%>
+<tr bgcolor="#bbffff">
+<td align=center>
+<h2>NDD package documentation</h2>
+<br>
+<small>
+  [
+    <a href="doc.html#gen">Generalities</a> |
+    <a href="doc.html#data">Datatypes</a> |
+    <a href="doc.html#fn">Functions</a> |
+    <a href="../../lash.html">Back to LASH main documentation</a>
+  ]
+</small>
+</td>
+</tr>
+</table>
+
+<h2><a name="gen">Generalities</a></h2>
+
+<p>
+The NDD package provides functions and datatypes for manipulating
+sets of unbounded integer vectors. The sets of vectors that can be
+represented by NDDs include those that can be expressed in
+Presburger arithmetic (i.e., the first-order arithmetic theory of integers
+without multiplication). The package provides functions for
+representing elementary sets and for performing various operations over
+represented sets.
+
+<p>
+In order to use the NDD package, one must link the application to
+the three following library files (all located in the <KBD>lib/</KBD>
+subdirectory of the main LASH directory):
+<ul>
+<li><KBD>lash-core.o</KBD>
+<li><KBD>lash-arith.o</KBD>
+<li><KBD>ndd-package.o</KBD>
+</ul>
+
+<p>
+The header files associated to the NDD package functions are
+located in the <KBD>src/ndd/</KBD> subdirectory.
+
+<h2><a name="data">Datatypes</a></h2>
+
+The following datatypes are provided by the NDD package: 
+<BLOCKQUOTE>
+<A HREF="man/ndd.html"><KBD>ndd</KBD></A> :
+Number Decision Diagram (representation of a set of
+integer vectors).<BR><BR>
+<A HREF="man/linear_transf.html"><KBD>linear_transf</KBD></A> :
+Linear transformation over integer vectors.<BR>
+<A HREF="man/linear_tr_info.html"><KBD>linear_tr_info</KBD></A> :
+Object that can be associated to a linear transformation in order
+to speed up its application to sets represented by NDDs.<BR>
+<A HREF="man/linear_star_info.html"><KBD>linear_star_info</KBD></A> :
+Object that can be associated to a linear transformation in order
+to speed up the computation of its repeated effect.<BR><BR>
+</BLOCKQUOTE>
+
+<h2><a name="fn">Functions</a></h2>
+The functions provided by the NDD package can be grouped into
+several categories: 
+
+<H4>Functions for constructing elementary NDDs</H4>
+
+<BLOCKQUOTE>
+<A HREF="man/ndd_create_empty.html"><KBD>ndd_create_empty,
+ndd_create_empty_lsdf, ndd_create_empty_msdf</KBD></A> :
+Construct an NDD representing the empty set.<BR>
+<A HREF="man/ndd_create_zn.html"><KBD>ndd_create_zn,
+ndd_create_zn_lsdf, ndd_create_zn_msdf</KBD></A> :
+Construct an NDD representing the universal set.<BR>
+<A HREF="man/ndd_create_eq2.html"><KBD>ndd_create_eq2,
+ndd_create_eq2_lsdf, ndd_create_eq2_msdf</KBD></A> :
+Construct an NDD representing the set of all the pairs
+with equal components.<BR>
+<A HREF="man/ndd_create_equation.html"><KBD>ndd_create_equation,
+ndd_create_equation_lsdf, ndd_create_equation_msdf</KBD></A> :
+Construct an NDD representing the set of solutions of
+a linear equation.<BR>
+<A HREF="man/ndd_create_inequation.html"><KBD>ndd_create_inequation,
+ndd_create_inequation_lsdf, ndd_create_inequation_msdf</KBD></A> :
+Construct an NDD representing the set of solutions of
+a linear constraint.<BR>
+</BLOCKQUOTE>
+
+<H4>Function for freeing NDDs</H4>
+
+<BLOCKQUOTE>
+<A HREF="man/ndd_free.html"><KBD>ndd_free</KBD></A> :
+Unallocates an NDD.<BR>
+</BLOCKQUOTE>
+
+<H4>Functions for combining and transforming NDDs</H4>
+
+<BLOCKQUOTE>
+<A HREF="man/ndd_product.html"><KBD>ndd_product</KBD></A> :
+Computes the Cartesian product of two sets represented by
+NDDs.<BR>
+<A HREF="man/ndd_difference.html"><KBD>ndd_difference</KBD></A> :
+Computes the difference of two sets represented by
+NDDs.<BR>
+<A HREF="man/ndd_union.html"><KBD>ndd_union, ndd_merge</KBD></A> :
+Compute the union of two sets represented by
+NDDs.<BR>
+<A HREF="man/ndd_intersection.html"><KBD>ndd_intersection</KBD></A> :
+Computes the intersection of two sets represented by
+NDDs.<BR>
+<A HREF="man/ndd_projection.html"><KBD>ndd_projection,
+ndd_multi_projection</KBD></A> :
+Compute the projection of a set represented by
+an NDD over some vector components.<BR>
+<A HREF="man/ndd_base_expand.html"><KBD>ndd_base_expand,
+ndd_base_reduce</KBD></A> :
+Perform base-dependent operations over a set represented by
+an NDD.<BR>
+<A HREF="man/ndd_interleave_z.html"><KBD>ndd_interleave_z</KBD></A> :
+Interleaves additional vector components in the elements of a
+set represented by an NDD.<BR>
+</BLOCKQUOTE>
+
+<H4>Functions for testing NDDs</H4>
+
+<BLOCKQUOTE>
+<A HREF="man/ndd_is_empty.html"><KBD>ndd_is_empty</KBD></A> :
+Tests whether a set represented by an NDD is empty.<BR>
+<A HREF="man/ndd_inclusion.html"><KBD>ndd_inclusion</KBD></A> :
+Tests whether a set represented by an NDD is a subset of
+another set.<BR>
+<A HREF="man/ndd_equality.html"><KBD>ndd_equality, ndd_disjoint</KBD></A> :
+Test whether two sets represented by NDDs are equal to each other,
+or whether there are disjoint.<BR>
+</BLOCKQUOTE>
+
+<H4>Functions related to linear transformations</H4>
+
+<BLOCKQUOTE>
+<A HREF="man/ndd_create_transf.html"><KBD>ndd_create_transf</KBD></A>
+: Constructs a linear transformation defined by its coefficients.<BR>
+<A
+HREF="man/ndd_create_identity_transf.html"><KBD>ndd_create_identity_transf</KBD></A>
+: Constructs a linear transformation corresponding to the identity
+function.<BR>
+<A
+HREF="man/ndd_create_assign_transf.html"><KBD>ndd_create_assign_transf</KBD></A>
+: Constructs a linear transformation corresponding to an assignment
+operation.<BR>
+<A
+HREF="man/ndd_create_cond_transf.html"><KBD>ndd_create_equ_transf,
+ndd_create_inequ_transf</KBD></A>
+: Construct a linear transformation corresponding to an equality
+or inequality constraint.<BR>
+<A HREF="man/ndd_transf_compose.html"><KBD>ndd_transf_compose</KBD></A>
+: Composes two linear transformations.<BR>
+<A HREF="man/ndd_transf_power.html"><KBD>ndd_transf_power</KBD></A>
+: Computes a power of a linear transformation.<BR>
+<A HREF="man/ndd_transf_copy.html"><KBD>ndd_transf_copy</KBD></A>
+: Constructs a copy of a linear transformation.<BR>
+<A HREF="man/ndd_transf_free.html"><KBD>ndd_transf_free</KBD></A>
+: Unallocates a linear transformation.<BR>
+<A HREF="man/ndd_image_by_transf.html"><KBD>ndd_image_by_transf</KBD></A>
+: Computes the image by a linear transformation of a set represented
+by an NDD.<BR>
+<A HREF="man/ndd_create_transf_info.html"><KBD>ndd_create_transf_info</KBD></A>
+: Constructs an information structure associated to a linear
+transformation (in order to speed up its computation).<BR>
+<A HREF="man/ndd_image_by_transf_info.html"><KBD>ndd_image_by_transf_info</KBD></A>
+: Computes the image by a linear transformation information structure
+of a set represented
+by an NDD.<BR>
+<A HREF="man/ndd_transf_info_free.html"><KBD>ndd_transf_info_free</KBD></A>
+: Unallocates a linear transformation information structure.<BR>
+</BLOCKQUOTE>
+
+<H4>Functions related to iterating linear transformations</H4>
+
+<BLOCKQUOTE>
+<A HREF="man/ndd_definable_closure.html"><KBD>ndd_definable_closure</KBD></A>
+: Checks whether the unbounded repeated effect of a given linear
+transformation can be computed.<BR>
+<A HREF="man/ndd_image_by_star_transf.html"><KBD>ndd_image_by_star_transf</KBD></A>
+: Computes the image of a set represented by an NDD by the unbounded
+repetition of a linear transformation.<BR>
+<A HREF="man/ndd_create_star_info.html"><KBD>ndd_create_star_info</KBD></A>
+: Constructs an information structure associated to the closure of a linear
+transformation (in order to speed up its computation).<BR>
+<A HREF="man/ndd_image_by_star_info.html"><KBD>ndd_image_by_star_info</KBD></A>
+: Computes the image of a set represented
+by an NDD by a linear-transformation closure-information structure.<BR>
+<A HREF="man/ndd_star_info_free.html"><KBD>ndd_star_info_free</KBD></A>
+: Unallocates a linear-transformation closure-information
+structure.<BR>
+</BLOCKQUOTE>
+
+<P>
+<table align=center width=100% cellpadding=15%>
+<tr bgcolor="#bbffff">
+<td align=center>
+<small>
+  [
+    <a href="doc.html#gen">Generalities</a> |
+    <a href="doc.html#data">Datatypes</a> |
+    <a href="doc.html#fn">Functions</a> |
+    <a href="../../lash.html">Back to LASH main documentation</a>
+  ]
+</small>
+</td>
+</tr>
+</table>
+
+</body>
+</html>

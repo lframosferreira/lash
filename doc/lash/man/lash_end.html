@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<title>lash_end</title>
+</head>
+
+<body bgcolor=white>
+
+<table align=center width=100% cellpadding=15%>
+<tr bgcolor="#bbffff">
+<td align=center>
+<h2>lash_end</h2>
+<br>
+<small>
+  [
+    <a href="lash_end.html#syn">Synopsis</a> |
+    <a href="lash_end.html#desc">Description</a> |
+    <a href="lash_end.html#ret">Return values</a> |
+    <a href="lash_end.html#diag">Diagnostics</a> |
+    <a href="lash_end.html#see">See also</a> |
+    <a href="../doc.html">Back to core package documentation</a>
+  ]
+</small>
+</td>
+</tr>
+</table>
+
+<h2><a name="syn">Synopsis</a></h2>
+
+<BLOCKQUOTE>
+<KBD>
+#include "lash.h"<br><br>
+int lash_end(void);
+</KBD>
+</BLOCKQUOTE>
+
+<h2><a name="desc">Description</a></h2>
+
+Shuts down the package and performs some internal consistency
+checks.
+
+<h2><a name="ret">Return values</a></h2>
+
+If the function is successful, it returns <B>0</B>. Otherwise, it
+returns <B>-1</B> and sets 
+<A HREF="lash_errno.html"><KBD>lash_errno</KBD></A>.
+
+<h2><a name="diag">Diagnostics</a></h2>
+
+<DL>
+<DT> <KBD>LASH_ERR_NOT_INIT</KBD>
+<DD> The package has not been initialized.
+
+<DT> <KBD>LASH_ERR_IN_USE</KBD>
+<DD> Some objects that have been created are still in use.
+     The package cannot shut down until those objects are freed.
+</DL>
+
+<h2><a name="see">See also</a></h2>
+
+<A HREF="lash_init.html"><KBD>lash_init</KBD>
+
+<P>
+<table align=center width=100% cellpadding=15%>
+<tr bgcolor="#bbffff">
+<td align=center>
+<small>
+  [
+    <a href="lash_end.html#syn">Synopsis</a> |
+    <a href="lash_end.html#desc">Description</a> |
+    <a href="lash_end.html#ret">Return values</a> |
+    <a href="lash_end.html#diag">Diagnostics</a> |
+    <a href="lash_end.html#see">See also</a> |
+    <a href="../doc.html">Back to core package documentation</a>
+  ]
+</small>
+</td>
+</tr>
+</table>
+
+</body>
+</html>
