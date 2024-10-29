@@ -27,7 +27,7 @@
 
 /****  Global variable(s).                                       ****/
 
-int  lash_initialized = 0;         /*  Is the package initialized?  */
+int lash_initialized = 0; /*  Is the package initialized?  */
 
 /****  Public visible function(s).                               ****/
 
@@ -49,45 +49,39 @@ int  lash_initialized = 0;         /*  Is the package initialized?  */
                                              "lash-types.h".
                          LASH_ERR_IN_USE   : Objects already in use.
                                              Indicates an internal
-                                             inconsistency.        
-                         LASH_ERR_LOGFILE  : Cannot create 
+                                             inconsistency.
+                         LASH_ERR_LOGFILE  : Cannot create
                                              logfile.              **/
 
-int  lash_init()
-{
+int lash_init() {
 
 #if LASH_CHECK_LEVEL >= 1
 
-  if (lash_initialized != 0)
-    {
-      lash_errno = LASH_ERR_ALREADY;
-      return -1;
-    }
+  if (lash_initialized != 0) {
+    lash_errno = LASH_ERR_ALREADY;
+    return -1;
+  }
 
-  if ((((uint1) -1) != ((uint1) 0xff)) ||
-      (sizeof(uint4) != 4 * sizeof(uint1)) ||
+  if ((((uint1)-1) != ((uint1)0xff)) || (sizeof(uint4) != 4 * sizeof(uint1)) ||
       (sizeof(uint8) != 8 * sizeof(uint1)) ||
-      (sizeof(uintptr) != sizeof (void *)))
-    {
-      lash_errno = LASH_ERR_BAD_ARCH;
-      return -1;
-    }
+      (sizeof(uintptr) != sizeof(void *))) {
+    lash_errno = LASH_ERR_BAD_ARCH;
+    return -1;
+  }
 
-  if (lash_get_mem_usage())
-    {
-      lash_errno = LASH_ERR_IN_USE;
-      return -1;
-    }
+  if (lash_get_mem_usage()) {
+    lash_errno = LASH_ERR_IN_USE;
+    return -1;
+  }
 
 #endif
 
 #if LASH_CHECK_LEVEL >= 2
 
-  if (diag__log_init() < 0)
-    {
-      lash_errno = LASH_ERR_LOGFILE;
-      return -1;
-    } 
+  if (diag__log_init() < 0) {
+    lash_errno = LASH_ERR_LOGFILE;
+    return -1;
+  }
 
 #endif
 
@@ -96,7 +90,7 @@ int  lash_init()
   return 0;
 }
 
-/**  lash_end()   :  Shuts the package down and performs some  
+/**  lash_end()   :  Shuts the package down and performs some
                      internal consistency checks. If the check
                      level is zero (see lash.h), then this function
                      does not perform checks and always returns
@@ -107,25 +101,22 @@ int  lash_init()
 
                      Possible error codes:
 
-                         LASH_ERR_NOT_INIT : Not initialized.    
-                         LASH_ERR_IN_USE   : Objects still in use,  
+                         LASH_ERR_NOT_INIT : Not initialized.
+                         LASH_ERR_IN_USE   : Objects still in use,
                                              cannot shutdown.      **/
-int  lash_end()
-{
+int lash_end() {
 
 #if LASH_CHECK_LEVEL >= 1
 
-  if (!lash_initialized)
-    {
-      lash_errno = LASH_ERR_NOT_INIT;
-      return -1;
-    }
+  if (!lash_initialized) {
+    lash_errno = LASH_ERR_NOT_INIT;
+    return -1;
+  }
 
-  if (lash_get_mem_usage())
-    {
-      lash_errno = LASH_ERR_IN_USE;
-      return -1;
-    }
+  if (lash_get_mem_usage()) {
+    lash_errno = LASH_ERR_IN_USE;
+    return -1;
+  }
 
 #endif
 
